@@ -1,0 +1,123 @@
+.header {
+  $block-name: &; // #{$block-name}__element
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @media screen and (min-width: $screen-m) {
+      padding: 15px 0;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      padding: 35px 0;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    @media screen and (min-width: $screen-ti) {
+      gap: 0 50px;
+    }
+
+    @media screen and (min-width: $screen-dl) {
+      gap: 0 100px;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      gap: 0 149px;
+    }
+  }
+
+  &__img {
+    max-width: 161px;
+    max-height: 50px;
+    line-height: 0;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 0 50px;
+
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+
+    @media screen and (min-width: $screen-ti) {
+      display: flex;
+      gap: 0 30px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      gap: 0 50px;
+    }
+
+    a {
+      letter-spacing: 0.4px;
+
+      @media screen and (min-width: $screen-ti) {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: $screen-d) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: $screen-dl) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__inf-company {
+    display: flex;
+    align-items: center;
+
+    @media screen and (min-width: $screen-m) {
+      display: none;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      display: flex;
+      gap: 0 15px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      gap: 0 40px;
+    }
+
+    @media screen and (min-width: $screen-dl) {
+      gap: 0 69px;
+    }
+
+    a {
+      font-size: 30px;
+      letter-spacing: 0.6px;
+      font-variant-numeric: lining-nums proportional-nums;
+
+      @media screen and (min-width: $screen-tl) {
+        font-size: 16px;
+      }
+
+      @media screen and (min-width: $screen-d) {
+        font-size: 20px;
+      }
+
+      @media screen and (min-width: $screen-dxl) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  &__burger {
+    display: block;
+
+    @media screen and (min-width: $screen-tl) {
+      display: none;
+    }
+  }
+}

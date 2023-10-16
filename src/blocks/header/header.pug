@@ -1,0 +1,39 @@
+//- Все примеси в этом файле должны начинаться c имени блока (header)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin header(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +header('Текст', 'some-mod')
+
+  -
+  // список модификаторов
+    var allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' header--' + modsList[i].trim();
+      }
+    }
+
+  .header(class=allMods)&attributes(attributes)
+    .container
+      .header__container
+        .header__inner
+          a(href='#', class='logo')
+            img(src='img/logo.svg', class='header__img', alt='')
+          .header__nav
+            each val, key in {club: "О клубе", coach: "Тренер", prices: "Цены", reviews: "Отзывы", contacts: "Контакты"}
+              a(class='link', href='#'+key)= val
+        .header__inf-company
+          a(href='tel:+79605552222', class='link') +7 960 555 22 22
+          button(type='button', class='button button--white open-modal-window') Заказать звонок
+
+        .header__burger
+          +burger
+
+        +modal-window

@@ -1,0 +1,32 @@
+.input {
+  $block-name: &; // #{$block-name}__element
+
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 20px 30px;
+  color: var(--black, #000);
+  font-size: 20px;
+  line-height: 150%; /* 30px */
+  letter-spacing: 0.4px;
+  background: var(--color-white);
+  border: 1px solid var(--border-card);
+  border-radius: 5px;
+  outline: none;
+  opacity: 1;
+  font-variant-numeric: lining-nums proportional-nums;
+
+  @media screen and (min-width: $screen-m) {
+    padding: 15px 25px;
+    font-size: 15px;
+  }
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+
+  &:focus,
+  &:active {
+    border: 1px solid var(--red);
+    box-shadow: var(--box-shadow-active-input);
+  }
+}
