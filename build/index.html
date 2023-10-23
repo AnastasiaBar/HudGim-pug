@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=0.1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="date=no">
+  <meta name="format-detection" content="address=no">
+  <meta name="format-detection" content="email=no">
+  <meta name="google" content="notranslate">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="robots" content="index, follow">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#5bbad5">
+  <meta name="theme-color" content="#000">
+  <meta name="msapplication-navbutton-color" content="#000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+  <title>HudGim</title>
+  <meta name="description" content="description">
+  <meta name="keywords" content="keywords">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"><script>// Убрать на html класс "no-js", добавить класс "js": с уровня стилей знаем работает ли JS
+document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+// Браузер и ОС
+function cth(c){document.documentElement.classList.add(c)}
+'ontouchstart' in window?cth('touch'):cth('no-touch');
+if(typeof InstallTrigger!=='undefined')cth('firefox');
+if(/constructor/i.test(window.HTMLElement)||(function(p){return p.toString()==="[object SafariRemoteNotification]"})(!window['safari']||(typeof safari!=='undefined'&&safari.pushNotification)))cth('safari');
+if(/*@cc_on!@*/!!document.documentMode)cth('ie');
+if(!(!!document.documentMode)&&!!window.StyleMedia)cth('edge');
+if(!!window.chrome&&(!!window.chrome.webstore||!!window.chrome.runtime))cth('chrome');
+if(~navigator.appVersion.indexOf("Win"))cth('windows');
+if(~navigator.appVersion.indexOf("Mac"))cth('osx');
+if(~['iPad','iPhone','iPod'].indexOf(navigator.platform))cth('ios');
+if(~navigator.appVersion.indexOf("Linux"))cth('linux');
+
+// Добавление 1vh (использование: height: 100vh; height: calc(var(--vh, 1vh) * 100);) для фикса 100vh на мобилках
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+</script><script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
+</head>
+
+<body><noscript>У вас отключен JavaScript. Это пугает.</noscript><!-- список модификаторовvar allMods = '';
+if (typeof (mods) !== 'undefined' && mods) {
+  var modsList = mods.split(',');
+  for (var i = 0; i < modsList.length; i++) {
+    allMods = allMods + ' header--' + modsList[i].trim();
+  }
+}
+-->
+  <div class="header">
+    <div class="container">
+      <div class="header__container">
+        <div class="header__inner"><a class="logo" href="#"><img class="header__img" src="img/logo.svg" alt="" /></a>
+          <div class="header__nav"><a class="link" href="#club">О клубе</a><a class="link" href="#coach">Тренер</a><a class="link" href="#prices">Цены</a><a class="link" href="#reviews">Отзывы</a><a class="link" href="#contacts">Контакты</a></div>
+        </div>
+        <div class="header__inf-company"><a class="link" href="tel:+79605552222">+7 960 555 22 22</a><button class="button button--white open-modal-window" type="button">Заказать звонок</button></div>
+        <div class="header__burger">
+          <div class="burger">
+            <div class="burger__button"><span></span><span></span><span></span></div>
+            <div class="burger__menu">
+              <div class="burger__logo"><img src="img/logo.svg" alt="" /></div>
+              <div class="burger__inf-company"><a class="link burger__phone" href="#">+7 960 555 22 22</a><button class="button button--red-shadow burger__btn open-modal-window" type="button">Заказать звонок</button></div>
+              <div class="burger__nav"><a class="link" href="#">О клубе</a><a class="link" href="#">Тренер</a><a class="link" href="#">Цены</a><a class="link" href="#">Отзывы</a><a class="link" href="#">Контакты</a></div>
+              <div class="burger__social-media">
+                <div class="burger__block"><svg class="burger__icon" height="25" width="25">
+                    <use xlink:href="img/icons.svg#icon__vk"></use>
+                  </svg>
+                  <div>hudgim_ru</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-window">
+          <div class="modal-window__cross"><svg height="50" width="50">
+              <use xlink:href="img/icons.svg#icon__cross"></use>
+            </svg></div>
+          <div class="modal-window__title">Заказать звонок</div>
+          <div class="modal-window__subtitle">Наш представитель свяжется с вами через несколько минут</div>
+          <div class="modal-window__form">
+            <form class="modal-window__form"><input class="input" name="name" placeholder="Имя" /><input class="input" name="phone" placeholder="Телефон" /><button class="button button--red modal-window__button" type="button">Оставить заявку</button></form>
+          </div>
+          <div class="modal-window__personal-data">
+            <p>Заполняя форму вы даёте согласие на обработку</p><a class="link" href="#">персональных данных</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__inf">
+          <h1 class="hero__title">Художественная<span class="hero__title-padding">гимнастика</span></h1>
+          <div class="hero__subtitle hero__title-padding">для детей</div>
+          <div class="hero__items"><svg class="hero__decor">
+              <use xlink:href="img/svgSprite.svg#icon__circle"></use>
+            </svg>
+            <div class="hero__item"><svg class="hero__item-icon">
+                <use xlink:href="img/svgSprite.svg#icon__checkmark"></use>
+              </svg>
+              <p>Принимаем<span> с 3 лет</span></p>
+            </div>
+            <div class="hero__item"><svg class="hero__item-icon">
+                <use xlink:href="img/svgSprite.svg#icon__checkmark"></use>
+              </svg>
+              <p>Первое занятие<span> бесплатно</span></p>
+            </div>
+            <div class="hero__item"><svg class="hero__item-icon">
+                <use xlink:href="img/svgSprite.svg#icon__checkmark"></use>
+              </svg>
+              <p>Клуб<span> в Москве</span></p>
+            </div><button class="button button--red-shadow hero__btn" type="button">Бесплатное пробное занятие</button>
+          </div>
+        </div>
+        <div class="hero__photo"><svg class="hero__decor hero__decor--mobile">
+            <use xlink:href="img/svgSprite.svg#icon__circle"></use>
+          </svg><img src="img/hero-image.png" alt="" /></div>
+      </div>
+    </div>
+  </div>
+  <div class="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__photo"><img src="img/about-image.png" alt="" /></div>
+        <div class="about__inf">
+          <p class="about__section-name">О спортивном клубе художественной гимнастики</p>
+          <p class="about__title">Колибри
+          <div class="about__inf-company">
+            <div class="about__decor"></div>
+            <div class="about__statistics">
+              <p class="about__text">центр художественной гимнастики для детей от 3 до 8 лет. Мы готовим будущих спортсменов, активно участвуем в соревнованиях и сборах, заботимся о гармоничном физическом и эстетическом развитии наших учениц. Добро пожаловать в мир большого спорта!</p>
+              <div class="about__items">
+                <div class="about__item"><svg class="about__icons">
+                    <use xlink:href="img/svgSprite.svg#icon__podium"></use>
+                  </svg>
+                  <p class="about__text-icon">Работаем более 10 лет</p>
+                </div>
+                <div class="about__item"><svg class="about__icons">
+                    <use xlink:href="img/svgSprite.svg#icon__map"></use>
+                  </svg>
+                  <p class="about__text-icon">Удобное месторасположение</p>
+                </div>
+                <div class="about__item"><svg class="about__icons">
+                    <use xlink:href="img/svgSprite.svg#icon__prize"></use>
+                  </svg>
+                  <p class="about__text-icon">Квалифицированные тренеры со стажем более 5 лет</p>
+                </div>
+                <div class="about__item"><svg class="about__icons">
+                    <use xlink:href="img/svgSprite.svg#icon__girl"></use>
+                  </svg>
+                  <p class="about__text-icon">При подготовке мы учитываем возрастные особенности</p>
+                </div>
+                <div class="about__item"><svg class="about__icons">
+                    <use xlink:href="img/svgSprite.svg#icon__cup"></use>
+                  </svg>
+                  <p class="about__text-icon">Ребёнка ожидают: выезды и сборы, внутренние соревнования в клубе, большой спорт</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="coaches">
+    <div class="container">
+      <div class="coaches__inner">
+        <div class="coaches__photo"><img src="img/coaches-image.png" alt="" /></div>
+        <div class="coaches__inf">
+          <p class="coaches__title">Тренерский состав</p>
+          <div class="coaches__inf-trainer">
+            <p class="coaches__name">Мария Иванова</p>
+            <p class="coaches__text">Мастер Спорта по художественной гимнастике. С 6 лет занималась в Училище Олимпийского Резерва под руководством лучших тренеров России.</p>
+            <p class="coaches__text">Неоднократная победительница Российских и Всероссийских соревнований в групповых упражнениях.</p>
+            <p class="coaches__text coaches__text--margin">Тренерский стаж работы —<span> 5 лет</span></p>
+            <p class="coaches__text coaches__text--margin">Образование —<span> Высшее</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clients">
+    <div class="container">
+      <div class="clients__inner">
+        <div class="clients__header">
+          <p class="clients__title">Наши воспитанницы</p>
+          <div class="clients__arrows"><svg class="clients__arrow-prev">
+              <use xlink:href="img/svgSprite.svg#icon__arrow_prev"></use>
+            </svg><svg class="clients__arrow-next">
+              <use xlink:href="img/svgSprite.svg#icon__arrow_next"></use>
+            </svg></div>
+        </div>
+        <div class="clients__slider">
+          <div class="clients__slider-item"><img src="img/client__image1.png" alt="" /></div>
+          <div class="clients__slider-item"><img src="img/client__image2.png" alt="" /></div>
+          <div class="clients__slider-item"><img src="img/client__image3.png" alt="" /></div>
+          <div class="clients__slider-item"><img src="img/client__image4.png" alt="" /></div>
+          <div class="clients__slider-item"><img src="img/client__image5.png" alt="" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="price">
+    <div class="container">
+      <div class="price__inner">
+        <p class="price__title">Абонементы и цены</p>
+        <div class="price__items">
+          <div class="price__item">
+            <div class="price__item-title">Пробное бесплатное занятие</div>
+            <div class="price__item-content">
+              <p class="price__text">Длительность занятия:</p>
+              <p class="price__item-content--bold">60 минут</p>
+            </div>
+            <div class="price__item-btn"><button class="button button--red-shadow price__btn" type="button">Записаться</button></div>
+          </div>
+          <div class="price__item">
+            <div class="price__item-title">12 занятий</div>
+            <div class="price__item-content">
+              <p class="price__text">Длительность занятия:</p>
+              <p class="price__item-content--bold">60 минут</p>
+            </div>
+            <div class="price__item-content">
+              <p class="price__text">Стоимость абонемента:</p>
+              <p class="price__item-content--bold">3000 ₽</p>
+            </div>
+            <div class="price__item-btn"><button class="button button--red-shadow price__btn" type="button">Записаться</button></div>
+          </div>
+          <div class="price__item price__sale"><svg class="price__item-icon">
+              <use xlink:href="img/svgSprite.svg#icon__sale"></use>
+            </svg>
+            <div class="price__cnt-text">
+              <div class="price__sale-text">Приведи друга и получи скидку</div>
+              <div class="price__sale-text--bold">500 ₽</div>
+              <div class="price__sale-text">на следующий месяц</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews">
+    <div class="container">
+      <div class="reviews__inner">
+        <div class="reviews__header">
+          <p class="reviews__title">Отзывы</p>
+          <div class="reviews__arrows"><svg class="reviews__arrow-prev">
+              <use xlink:href="img/svgSprite.svg#icon__arrow_prev"></use>
+            </svg><svg class="reviews__arrow-next">
+              <use xlink:href="img/svgSprite.svg#icon__arrow_next"></use>
+            </svg></div>
+        </div>
+        <div class="reviews__slider">
+          <div class="reviews__slide">
+            <div class="reviews__slide-flex">
+              <div class="reviews__cnt-photo"><img class="reviews__photo" src="img/reviews__image1.png" alt="" /></div>
+              <div class="reviews__inf"><svg class="reviews__decor">
+                  <use xlink:href="img/svgSprite.svg#icon__quotationMarks"></use>
+                </svg>
+                <p class="reviews__text">Отличный центр, потому что знаем на своем опыте, профессиональный подход к детям, индивидуальный и что самое главное с любовью к своему делу!. Ребенок с радостью посещает занятия, хотя тренировки действительно проходят серьезно... Результаты есть. Спасибо нашему тренеру за такой подход!</p>
+              </div>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="reviews__slide-flex">
+              <div class="reviews__cnt-photo"><img class="reviews__photo" src="img/reviews__image2.png" alt="" /></div>
+              <div class="reviews__inf"><svg class="reviews__decor">
+                  <use xlink:href="img/svgSprite.svg#icon__quotationMarks"></use>
+                </svg>
+                <p class="reviews__text">Отличный центр, потому что знаем на своем опыте, профессиональный подход к детям, индивидуальный и что самое главное с любовью к своему делу!. Ребенок с радостью посещает занятия, хотя тренировки действительно проходят серьезно... Результаты есть. Спасибо нашему тренеру за такой подход!</p>
+              </div>
+            </div>
+          </div>
+          <div class="reviews__slide">
+            <div class="reviews__slide-flex">
+              <div class="reviews__cnt-photo"><img class="reviews__photo" src="img/reviews__image1.png" alt="" /></div>
+              <div class="reviews__inf"><svg class="reviews__decor">
+                  <use xlink:href="img/svgSprite.svg#icon__quotationMarks"></use>
+                </svg>
+                <p class="reviews__text">Отличный центр, потому что знаем на своем опыте, профессиональный подход к детям, индивидуальный и что самое главное с любовью к своему делу!. Ребенок с радостью посещает занятия, хотя тренировки действительно проходят серьезно... Результаты есть. Спасибо нашему тренеру за такой подход!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-questions">
+    <div class="container">
+      <div class="user-questions__inner">
+        <p class="user-questions__title">Вопрос-ответ</p>
+        <div class="user-questions__items">
+          <div class="user-questions__item">
+            <div class="user-questions__question">
+              <p class="user-questions__item-title">Есть ли турниры?</p><svg class="user-questions__close">
+                <use xlink:href="img/svgSprite.svg#icon__plus"></use>
+              </svg>
+            </div>
+            <p class="user-questions__text">Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!</p>
+          </div>
+          <div class="user-questions__item">
+            <div class="user-questions__question">
+              <p class="user-questions__item-title">Чего достигнет ребёнок от занятий?</p><svg class="user-questions__close">
+                <use xlink:href="img/svgSprite.svg#icon__plus"></use>
+              </svg>
+            </div>
+            <p class="user-questions__text">Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!</p>
+          </div>
+          <div class="user-questions__item">
+            <div class="user-questions__question">
+              <p class="user-questions__item-title">Можно ли получить разряд?</p><svg class="user-questions__close">
+                <use xlink:href="img/svgSprite.svg#icon__plus"></use>
+              </svg>
+            </div>
+            <p class="user-questions__text">Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!</p>
+          </div>
+          <div class="user-questions__item">
+            <div class="user-questions__question">
+              <p class="user-questions__item-title">А если ребёнок заболел?</p><svg class="user-questions__close">
+                <use xlink:href="img/svgSprite.svg#icon__plus"></use>
+              </svg>
+            </div>
+            <p class="user-questions__text">Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="application">
+    <div class="container">
+      <div class="application__inner">
+        <p class="application__title">Запишись на первое пробное бесплатное занятие уже сейчас!</p>
+        <div class="application__cnt-form">
+          <p class="application__form-title">Оставьте заявку</p>
+          <p class="application__form-subtitle">Наш представитель свяжется с вами через несколько минут</p>
+          <form class="application__form"><input class="input application__input" name="name" placeholder="Имя" /><input class="input application__input" name="phone" placeholder="Телефон" /><input class="input application__input" name="age" placeholder="Возраст девочки" /><button class="button button--red-shadow popup__button application__btn" type="button">Оставить заявку</button></form>
+          <p class="application__personal-data">Заполняя форму вы даёте согласие на обработку<a class="link" href="#"> персональных данных</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contacts">
+    <div class="container">
+      <div class="contacts__inner">
+        <div class="contacts__cnt-inf">
+          <p class="contacts__title">Контакты</p>
+          <div class="contacts__inf">
+            <p class="contacts__inf-title">Спортивный клуб художественной гимнастики «HudGim»</p>
+            <p class="contacts__adress">420000, Россия, Москва, Бабушкинский район, ул. Пушкина, 23</p>
+            <div class="contacts__items">
+              <div class="contacts__item"><svg class="contacts__contact-icon">
+                  <use xlink:href="img/svgSprite.svg#icon__phone"></use>
+                </svg>
+                <p class="contacts__contact-text">+7 960 555 22 22</p>
+              </div>
+              <div class="contacts__item"><svg class="contacts__contact-icon">
+                  <use xlink:href="img/svgSprite.svg#icon__social_vk"></use>
+                </svg>
+                <p class="contacts__contact-text">hudgim_ru</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contacts__map" id="map"></div>
+      </div>
+    </div>
+  </div>
+  <div class="popup" data-modal="1"><svg class="popup__cross">
+      <use xlink:href="img/svgSprite.svg#icon__cross"></use>
+    </svg>
+    <div class="popup__title">Заказать звонок</div>
+    <div class="popup__subtitle">Наш представитель свяжется с вами через несколько минут</div>
+    <div class="popup__form">
+      <form class="popup__form"><input class="input" name="name" placeholder="Имя" /><input class="input" name="phone" placeholder="Телефон" /><button class="button button--red-shadow popup__button" type="button">Оставить заявку</button></form>
+    </div>
+    <div class="popup__personal-data">
+      <p>Заполняя форму вы даёте согласие на обработку<a class="link" href="#"> персональных данных</a></p>
+    </div>
+  </div>
+  <div class="overlay"></div><script src="js/bundle.js"></script><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+</body>
+
+</html>
