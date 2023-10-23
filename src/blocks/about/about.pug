@@ -1,0 +1,54 @@
+//- Все примеси в этом файле должны начинаться c имени блока (about)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin about(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +about('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' about--' + modsList[i].trim();
+      }
+    }
+
+  .about(class=allMods)&attributes(attributes)
+    .container
+      .about__inner
+        .about__photo
+          img(src='img/about-image.png', alt='')
+        .about__inf
+          p.about__section-name О спортивном клубе художественной гимнастики
+          p.about__title Колибри
+            .about__inf-company
+              .about__decor
+              .about__statistics
+                p.about__text центр художественной гимнастики для детей от 3 до 8 лет. Мы готовим будущих спортсменов, активно участвуем в соревнованиях и сборах, заботимся о гармоничном физическом и эстетическом развитии наших учениц. Добро пожаловать в мир большого спорта!
+                .about__items
+                  .about__item
+                    svg.about__icons
+                      use(xlink:href='img/svgSprite.svg#icon__podium')
+                    p.about__text-icon Работаем более 10 лет
+                  .about__item
+                    svg.about__icons
+                      use(xlink:href='img/svgSprite.svg#icon__map')
+                    p.about__text-icon Удобное месторасположение
+                  .about__item
+                    svg.about__icons
+                      use(xlink:href='img/svgSprite.svg#icon__prize')
+                    p.about__text-icon Квалифицированные тренеры со стажем более 5 лет
+                  .about__item
+                    svg.about__icons
+                      use(xlink:href='img/svgSprite.svg#icon__girl')
+                    p.about__text-icon При подготовке мы учитываем возрастные особенности
+                  .about__item
+                    svg.about__icons
+                      use(xlink:href='img/svgSprite.svg#icon__cup')
+                    p.about__text-icon Ребёнка ожидают: выезды и сборы, внутренние соревнования в клубе, большой спорт

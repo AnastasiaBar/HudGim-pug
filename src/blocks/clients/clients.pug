@@ -1,0 +1,42 @@
+//- Все примеси в этом файле должны начинаться c имени блока (clients)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin clients(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +clients('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' clients--' + modsList[i].trim();
+      }
+    }
+
+  .clients(class=allMods)&attributes(attributes)
+    .container
+      .clients__inner
+        .clients__header
+          p.clients__title Наши воспитанницы
+          .clients__arrows
+            svg.clients__arrow-prev
+              use(xlink:href='img/svgSprite.svg#icon__arrow_prev')
+            svg.clients__arrow-next
+              use(xlink:href='img/svgSprite.svg#icon__arrow_next')
+        .clients__slider
+          .clients__slider-item
+            img(src='img/client__image1.png', alt='')
+          .clients__slider-item
+            img(src='img/client__image2.png', alt='')
+          .clients__slider-item
+            img(src='img/client__image3.png', alt='')
+          .clients__slider-item
+            img(src='img/client__image4.png', alt='')
+          .clients__slider-item
+            img(src='img/client__image5.png', alt='')

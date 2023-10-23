@@ -1,0 +1,23 @@
+//- Все примеси в этом файле должны начинаться c имени блока (overlay)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin overlay(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +overlay('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' overlay--' + modsList[i].trim();
+      }
+    }
+
+  .overlay(class=allMods)&attributes(attributes)

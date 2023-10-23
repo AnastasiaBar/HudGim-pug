@@ -1,0 +1,141 @@
+.clients {
+  $block-name: &; // #{$block-name}__element
+
+  .clients__slider-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+    transition: transform 1s, opacity 1s;
+  }
+
+  .slick-current {
+    position: relative;
+    z-index: 2;
+    display: block;
+    opacity: 1;
+  }
+
+  .clients__slider-snext {
+    z-index: 1;
+    transform: translate3d(25%, 0, -10px) scale(0.71);
+    opacity: 1;
+  }
+
+  .clients__slider-snext2 {
+    z-index: -1;
+    transform: translate3d(40%, 0, -20px) scale(0.45);
+    opacity: 1;
+  }
+
+  .clients__slider-sprev {
+    transform: translate3d(-25%, 0, -10px) scale(0.71);
+    opacity: 1;
+  }
+
+  .clients__slider-sprev2 {
+    transform: translate3d(-40%, 0, -20px) scale(0.45);
+    opacity: 1;
+  }
+
+  .slick-dotted.slick-slider {
+    margin: 0;
+  }
+
+  .slick-dots {
+    position: relative;
+    top: -60px;
+
+    .slick-active {
+      border: 2px solid var(--red_50p, rgb(241 1 50 / 50%));
+    }
+
+    li {
+      width: 15px;
+      height: 15px;
+      margin: 0 10px;
+      background: var(--white, #fff);
+      border: 2px solid var(--red_50p, rgb(241 1 50 / 50%));
+      border-radius: 15px;
+
+      button {
+        display: none;
+      }
+    }
+  }
+
+  &__inner {
+    margin: 322px 155px 135px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    margin: 0;
+    color: var(--red, #f10132);
+    font-size: 100px;
+    font-family: var(--font-dance);
+    line-height: 100%; /* 100px */
+    letter-spacing: 1px;
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 0 40px;
+    align-items: center;
+  }
+
+  &__arrow-prev {
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__arrow-next {
+    width: 100px;
+    height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__slider {
+    .slick-track {
+      max-width: 100% !important;
+      transform: translate3d(0, 0, 0) !important;
+    }
+  }
+
+  &__slider-item {
+    padding-bottom: 100px;
+
+    img {
+      display: block;
+      width: 600px;
+      height: 600px;
+      margin: 0 auto;
+      padding: 25px;
+      object-fit: cover;
+      background: var(--white, #fff);
+      box-shadow: var(--box-shadow-card);
+    }
+  }
+}

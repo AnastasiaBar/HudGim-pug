@@ -1,0 +1,51 @@
+//- Все примеси в этом файле должны начинаться c имени блока (price)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin price(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +price('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' price--' + modsList[i].trim();
+      }
+    }
+
+  .price(class=allMods)&attributes(attributes)
+    .container
+      .price__inner
+        p.price__title Абонементы и цены
+        .price__items
+          .price__item
+            .price__item-title Пробное бесплатное занятие
+            .price__item-content
+              p.price__text Длительность занятия:
+              p.price__item-content--bold 60 минут
+            .price__item-btn
+              button.button.button--red-shadow.price__btn(type='button') Записаться
+          .price__item
+            .price__item-title 12 занятий
+            .price__item-content
+              p.price__text Длительность занятия:
+              p.price__item-content--bold 60 минут
+            .price__item-content
+              p.price__text Стоимость абонемента:
+              p.price__item-content--bold 3000 ₽
+            .price__item-btn
+              button.button.button--red-shadow.price__btn(type='button') Записаться
+          .price__item.price__sale
+            svg.price__item-icon
+              use(xlink:href='img/svgSprite.svg#icon__sale')
+            .price__cnt-text
+              .price__sale-text Приведи друга и получи скидку
+              .price__sale-text--bold 500 ₽
+              .price__sale-text на следующий месяц
+

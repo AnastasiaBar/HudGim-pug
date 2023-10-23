@@ -1,0 +1,37 @@
+//- Все примеси в этом файле должны начинаться c имени блока (modal-window)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin modal-window(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +modal-window('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' modal-window--' + modsList[i].trim();
+      }
+    }
+
+  .modal-window(class=allMods)&attributes(attributes)
+    .modal-window__cross
+      svg(height='50', width='50')
+        use(xlink:href='img/icons.svg#icon__cross')
+    .modal-window__title Заказать звонок
+    .modal-window__subtitle Наш представитель свяжется с вами через несколько минут
+    .modal-window__form
+      form(class='modal-window__form')
+        input(name='name', placeholder='Имя', class='input')
+        input(name='phone', placeholder='Телефон', class='input')
+        button(type='button', class='button button--red modal-window__button') Оставить заявку
+    .modal-window__personal-data
+      p Заполняя форму вы даёте согласие на обработку
+      a(class='link', href='#') персональных данных
+

@@ -1,0 +1,39 @@
+//- Все примеси в этом файле должны начинаться c имени блока (contacts)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin contacts(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +contacts('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' contacts--' + modsList[i].trim();
+      }
+    }
+
+  .contacts(class=allMods)&attributes(attributes)
+    .container
+      .contacts__inner
+        .contacts__cnt-inf
+          p.contacts__title Контакты
+          .contacts__inf
+            p.contacts__inf-title Спортивный клуб художественной гимнастики «HudGim»
+            p.contacts__adress 420000, Россия, Москва, Бабушкинский район, ул. Пушкина, 23
+            .contacts__items
+              .contacts__item
+                svg.contacts__contact-icon
+                  use(xlink:href='img/svgSprite.svg#icon__phone')
+                p.contacts__contact-text +7 960 555 22 22
+              .contacts__item
+                svg.contacts__contact-icon
+                  use(xlink:href='img/svgSprite.svg#icon__social_vk')
+                p.contacts__contact-text hudgim_ru
+        .contacts__map#map

@@ -1,0 +1,122 @@
+.price {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    display: flex;
+    gap: 0 79px;
+    justify-content: space-between;
+    margin: 105px 155px 95px;
+  }
+
+  &__title {
+    max-width: 540px;
+    margin: 0;
+    color: var(--red, #f10132);
+    font-size: 100px;
+    font-family: var(--font-dance);
+    line-height: 1;
+    letter-spacing: 1px;
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__items {
+    display: flex;
+    gap: 0 20px;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3 - 10px);
+    height: 400px;
+    padding: 30px;
+    background: var(--white, #fff);
+    border: 1px solid var(--border-card, rgba(241 1 50 / 50%));
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-active-input);
+  }
+
+  &__item-title {
+    min-height: 90px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 120%; /* 30px */
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__sale {
+    gap: 25px;
+    align-items: center;
+    padding: 50px 30px;
+    background: var(--white, #fff);
+    border: none;
+    box-shadow: var(--box-shadow-card);
+  }
+
+  &__item-content {
+    margin-bottom: 27px;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    font-variant-numeric: lining-nums proportional-nums;
+
+    &--bold {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &__item-btn {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  &__btn {
+    width: 100%;
+    height: fit-content;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+
+    @media screen and (min-width: $screen-dl) {
+      padding: 15px 30px;
+      font-size: 20px;
+    }
+  }
+
+  &__item-icon {
+    width: 75px;
+    height: 75px;
+    color: var(--white, #fff);
+  }
+
+  &__cnt-text {
+    width: 80%;
+    text-align: center;
+  }
+
+  &__sale-text {
+    margin: 0;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 125%; /* 25px */
+    letter-spacing: 0.4px;
+
+    &--bold {
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 120%;
+      letter-spacing: 0.5px;
+    }
+  }
+}

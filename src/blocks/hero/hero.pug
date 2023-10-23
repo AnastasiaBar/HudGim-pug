@@ -1,0 +1,52 @@
+//- Все примеси в этом файле должны начинаться c имени блока (hero)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin hero(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +hero('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' hero--' + modsList[i].trim();
+      }
+    }
+
+  .hero(class=allMods)&attributes(attributes)
+    .container
+      .hero__inner
+        .hero__inf
+          h1.hero__title Художественная
+            span.hero__title-padding гимнастика
+          .hero__subtitle.hero__title-padding для детей
+          .hero__items
+            svg.hero__decor
+              use(xlink:href='img/svgSprite.svg#icon__circle')
+            .hero__item
+              svg.hero__item-icon
+                use(xlink:href='img/svgSprite.svg#icon__checkmark')
+              p Принимаем
+                span  с 3 лет
+            .hero__item
+              svg.hero__item-icon
+                use(xlink:href='img/svgSprite.svg#icon__checkmark')
+              p Первое занятие
+                span  бесплатно
+            .hero__item
+              svg.hero__item-icon
+                use(xlink:href='img/svgSprite.svg#icon__checkmark')
+              p Клуб
+                span  в Москве
+            button.button.button--red-shadow.hero__btn(type='button') Бесплатное пробное занятие
+        .hero__photo
+          svg.hero__decor.hero__decor--mobile
+            use(xlink:href='img/svgSprite.svg#icon__circle')
+          img(src='img/hero-image.png', alt='')
+

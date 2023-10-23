@@ -1,0 +1,91 @@
+.coaches {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 115px;
+    left: 0;
+    z-index: -1;
+    width: 46%;
+    height: 600px;
+    background: var(--pink);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: -290px;
+    right: 0;
+    z-index: -1;
+    width: 40px;
+    height: 600px;
+    background: var(--pink);
+    content: "";
+  }
+
+  &__inner {
+    display: flex;
+    gap: 0 60px;
+    justify-content: space-between;
+    margin: 185px 160px 215px;
+  }
+
+  &__photo {
+    width: 595px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  &__inf {
+    width: calc(100% - 595px - 60px);
+    margin-top: 37px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 135%; /* 20.25px */
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__inf-trainer {
+    margin: 95px 0 0 115px;
+  }
+
+  &__name {
+    margin: 0 0 30px;
+    color: var(--red);
+    font-size: 100px;
+    font-family: var(--font-dance);
+    line-height: 1;
+    letter-spacing: 1px;
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__text {
+    width: 80%;
+    margin: 0 0 24px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 150%; /* 30px */
+    letter-spacing: 0.4px;
+    font-variant-numeric: lining-nums proportional-nums;
+
+    &--margin {
+      margin: 0;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

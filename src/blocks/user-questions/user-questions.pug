@@ -1,0 +1,34 @@
+//- Все примеси в этом файле должны начинаться c имени блока (user-questions)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin user-questions(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +user-questions('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' user-questions--' + modsList[i].trim();
+      }
+    }
+
+  .user-questions(class=allMods)&attributes(attributes)
+    .container
+      .user-questions__inner
+        p.user-questions__title Вопрос-ответ
+        .user-questions__items
+          -let listQuestions = [{title: 'Есть ли турниры?', text: 'Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!'},{title: 'Чего достигнет ребёнок от занятий?', text: 'Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!'}, {title: 'Можно ли получить разряд?', text: 'Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!'}, {title: 'А если ребёнок заболел?', text: 'Мы открываем путь в профессиональный спорт. При регулярных занятиях, желании и напоре ваш ребёнок станет чемпионом!'}]
+          each item in listQuestions
+            .user-questions__item
+              .user-questions__question
+                p.user-questions__item-title= item.title
+                svg.user-questions__close
+                  use(xlink:href='img/svgSprite.svg#icon__plus')
+              p.user-questions__text= item.text

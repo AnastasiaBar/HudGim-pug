@@ -1,0 +1,102 @@
+.application {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: -235px;
+    z-index: -1;
+    width: 33%;
+    height: 500px;
+    background: var(--pink);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: calc(-235px - 156px / 2);
+    left: calc(33% - 156px / 2);
+    z-index: -1;
+    width: 156px;
+    height: 156px;
+    background: url("../img/icon__circle.svg");
+    content: "";
+  }
+
+  &__inner {
+    display: flex;
+    gap: 0 20px;
+    margin: 50px 155px 150px;
+  }
+
+  &__title {
+    width: 600px;
+    margin: 0;
+    font-size: 75px;
+    font-family: var(--font-dance);
+    line-height: 100%; /* 75px */
+    letter-spacing: 0.75px;
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__cnt-form {
+    width: 445px;
+    margin-top: 200px;
+  }
+
+  &__form-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 120%; /* 30px */
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__form-subtitle {
+    margin: 15px 0 0;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 152%; /* 30.4px */
+    letter-spacing: 0.4px;
+    font-variant-numeric: lining-nums proportional-nums;
+  }
+
+  &__form {
+    margin: 50px 0;
+  }
+
+  &__input {
+    padding: 14px 25px;
+
+    @media screen and (min-width: $screen-dl) {
+      padding: 19px 25px;
+    }
+  }
+
+  &__personal-data {
+    margin: 0;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 133%;
+    letter-spacing: 0.3px;
+    font-variant-numeric: lining-nums proportional-nums;
+
+    a {
+      color: var(--red);
+      font-weight: 600;
+      text-decoration-line: underline;
+    }
+  }
+
+  &__btn {
+    font-weight: 600;
+    line-height: 100%; /* 20px */
+    letter-spacing: 0.4px;
+
+    @media screen and (min-width: $screen-dxl) {
+      padding: 25px 30px;
+      font-size: 20px;
+    }
+  }
+}

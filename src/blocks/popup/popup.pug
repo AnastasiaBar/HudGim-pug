@@ -1,0 +1,34 @@
+//- Все примеси в этом файле должны начинаться c имени блока (popup)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin popup(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +popup('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' popup--' + modsList[i].trim();
+      }
+    }
+
+  .popup(class=allMods)&attributes(attributes)(data-modal='1')
+    svg.popup__cross
+      use(xlink:href='img/svgSprite.svg#icon__cross')
+    .popup__title Заказать звонок
+    .popup__subtitle Наш представитель свяжется с вами через несколько минут
+    .popup__form
+      form.popup__form
+        input.input(name='name', placeholder='Имя')
+        input.input(name='phone', placeholder='Телефон')
+        button.button.button--red-shadow.popup__button(type='button') Оставить заявку
+    .popup__personal-data
+      p Заполняя форму вы даёте согласие на обработку
+       a.link(href='#')  персональных данных

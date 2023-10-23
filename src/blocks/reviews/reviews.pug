@@ -1,0 +1,58 @@
+//- Все примеси в этом файле должны начинаться c имени блока (reviews)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin reviews(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +reviews('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if (typeof (mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' reviews--' + modsList[i].trim();
+      }
+    }
+
+  .reviews(class=allMods)&attributes(attributes)
+    .container
+      .reviews__inner
+        .reviews__header
+          p.reviews__title Отзывы
+          .reviews__arrows
+            svg.reviews__arrow-prev
+              use(xlink:href='img/svgSprite.svg#icon__arrow_prev')
+            svg.reviews__arrow-next
+              use(xlink:href='img/svgSprite.svg#icon__arrow_next')
+        .reviews__slider
+          .reviews__slide
+            .reviews__slide-flex
+              .reviews__cnt-photo
+                img.reviews__photo(src='img/reviews__image1.png', alt='')
+              .reviews__inf
+                svg.reviews__decor
+                  use(xlink:href='img/svgSprite.svg#icon__quotationMarks')
+                p.reviews__text Отличный центр, потому что знаем на своем опыте, профессиональный подход к детям, индивидуальный и что самое главное с любовью к своему делу!. Ребенок с радостью посещает занятия, хотя тренировки действительно проходят серьезно... Результаты есть. Спасибо нашему тренеру за такой подход!
+
+          .reviews__slide
+            .reviews__slide-flex
+              .reviews__cnt-photo
+                img.reviews__photo(src='img/reviews__image2.png', alt='')
+              .reviews__inf
+                svg.reviews__decor
+                  use(xlink:href='img/svgSprite.svg#icon__quotationMarks')
+                p.reviews__text Отличный центр, потому что знаем на своем опыте, профессиональный подход к детям, индивидуальный и что самое главное с любовью к своему делу!. Ребенок с радостью посещает занятия, хотя тренировки действительно проходят серьезно... Результаты есть. Спасибо нашему тренеру за такой подход!
+
+          .reviews__slide
+            .reviews__slide-flex
+              .reviews__cnt-photo
+                img.reviews__photo(src='img/reviews__image1.png', alt='')
+              .reviews__inf
+                svg.reviews__decor
+                  use(xlink:href='img/svgSprite.svg#icon__quotationMarks')
+                p.reviews__text Отличный центр, потому что знаем на своем опыте, профессиональный подход к детям, индивидуальный и что самое главное с любовью к своему делу!. Ребенок с радостью посещает занятия, хотя тренировки действительно проходят серьезно... Результаты есть. Спасибо нашему тренеру за такой подход!

@@ -1,0 +1,107 @@
+@import "../../scss/breakpoints";
+
+.popup {
+  $block-name: &; // #{$block-name}__element
+  $padding-popup-modal: 15px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 300;
+  width: calc(100% - $padding-popup-modal * 2);
+  max-width: 400px;
+  max-height: 90%;
+  padding: 25px;
+  background: var(--white);
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s all;
+
+  @media screen and (min-width: $screen-tl) {
+    width: 100%;
+    max-width: 560px;
+    padding: 50px 55px 65px;
+  }
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__cross {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    color: var(--white);
+    cursor: pointer;
+
+    @media screen and (min-width: $screen-tl) {
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 120%; /* 30px */
+
+    @media screen and (min-width: $screen-tl) {
+      font-size: 25px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 152%; /* 30.4px */
+    letter-spacing: 0.4px;
+
+    @media screen and (min-width: $screen-tl) {
+      font-size: 20px;
+    }
+  }
+
+  &__form {
+    margin: 30px 0;
+
+    @media screen and (min-width: $screen-tl) {
+      margin: 50px 0;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    font-size: 15px;
+
+    @media screen and (min-width: $screen-tl) {
+      font-size: 20px;
+    }
+  }
+
+  &__personal-data {
+    a,
+    p {
+      font-size: 15px;
+      line-height: 133%;
+      letter-spacing: 0.3px;
+      font-variant-numeric: lining-nums proportional-nums;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 300;
+    }
+
+    a {
+      color: var(--red);
+      font-weight: 600;
+      text-decoration-line: underline;
+    }
+  }
+}

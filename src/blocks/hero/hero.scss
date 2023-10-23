@@ -1,0 +1,330 @@
+@import "../../scss/breakpoints";
+
+.hero {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  margin-top: 25px;
+
+  &::after {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    width: 45vw;
+    height: 100%;
+    background: var(--pink);
+    content: "";
+
+    @media screen and (min-width: $screen-ti) {
+      top: -150px;
+      right: 0;
+      left: auto;
+      width: 40vw;
+      height: 60vh;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      top: -150px;
+      right: 0;
+      height: 800px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    @media screen and (min-width: $screen-ti) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__inf {
+    position: relative;
+    left: 0;
+    order: 2;
+    width: 100%;
+
+    @media screen and (min-width: $screen-ti) {
+      order: 1;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      left: 105px;
+      width: calc(100% - 300px);
+    }
+
+    @media screen and (min-width: $screen-dl) {
+      width: calc(100% - 450px);
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      left: 305px;
+      width: calc(100% - 600px);
+    }
+
+    &::before {
+      position: absolute;
+      top: 60px;
+      left: -155px;
+      z-index: -1;
+      display: none;
+      width: 600px;
+      height: 1000px;
+      background: var(--pink);
+      content: "";
+
+      @media screen and (min-width: $screen-tl) {
+        top: 0;
+        left: -155px;
+        display: block;
+        width: 400px;
+        height: 600px;
+      }
+
+      @media screen and (min-width: $screen-dxl) {
+        top: 60px;
+        left: -155px;
+        width: 600px;
+        height: 1000px;
+      }
+    }
+  }
+
+  &__title {
+    display: grid;
+    margin: 35px 0 0;
+    font-weight: 400;
+    font-size: 40px;
+    font-family: var(--font-dance);
+    line-height: 90%; /* 40.5px */
+    letter-spacing: 0.45px;
+
+    @media screen and (min-width: $screen-bm) {
+      font-size: 45px;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      font-size: 90px;
+    }
+
+    @media screen and (min-width: $screen-dl) {
+      font-size: 120px;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      margin: 155px 0 0;
+      font-size: 150px;
+      line-height: 0.7;
+    }
+  }
+
+  &__title-padding {
+    padding-left: 0;
+
+    @media screen and (min-width: $screen-tl) {
+      padding-left: 15px;
+    }
+
+    @media screen and (min-width: $screen-dl) {
+      padding-left: 100px;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      padding-left: 252px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 0;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 100%; /* 15px */
+    letter-spacing: 0.3px;
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      font-size: 20px;
+      letter-spacing: 0.6px;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      font-size: 30px;
+    }
+  }
+
+  &__items {
+    position: relative;
+    width: 100%;
+    margin-top: 35px;
+    padding: 20px 15px 50px;
+    background: var(--white);
+
+    @media screen and (min-width: $screen-tl) {
+      width: 500px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      padding: 20px 15px 65px 100px;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      width: 755px;
+      margin-top: 45px;
+      padding: 30px 190px 95px 250px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: -22px;
+    width: calc(100% - 30px);
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+
+    @media screen and (min-width: $screen-dxl) {
+      bottom: -35px;
+      width: fit-content;
+      padding: 25px 40px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  &__decor {
+    position: absolute;
+    top: calc(-156px / 2);
+    left: calc(-156px / 2);
+    display: none;
+    width: 156px;
+    height: 156px;
+    color: var(--white);
+
+    @media screen and (min-width: $screen-dxl) {
+      display: block;
+    }
+
+    &--mobile {
+      position: absolute;
+      top: 0;
+      left: -30px;
+      display: block;
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+
+      @media screen and (min-width: $screen-ti) {
+        display: none;
+      }
+
+      @media screen and (min-width: $screen-dxl) {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: 0 10px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: $screen-dxl) {
+      margin-bottom: 15px;
+    }
+
+    &:nth-child(4) {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--black, #000);
+      font-weight: 300;
+      font-variant-numeric: lining-nums proportional-nums;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+
+      @media screen and (min-width: $screen-d) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: $screen-dxl) {
+        font-size: 20px;
+        letter-spacing: 0.4px;
+      }
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__item-icon {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: $screen-d) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__photo {
+    position: relative;
+    order: 1;
+    width: 100%;
+
+    @media screen and (min-width: $screen-ti) {
+      order: 2;
+    }
+
+    @media screen and (min-width: $screen-tl) {
+      position: static;
+      width: 300px;
+    }
+
+    @media screen and (min-width: $screen-d) {
+      width: 450px;
+    }
+
+    @media screen and (min-width: $screen-dxl) {
+      width: 600px;
+    }
+
+    img {
+      position: relative;
+      right: -90px;
+      flex-shrink: 0;
+      width: calc(100% - 75px);
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 5px 0 0 5px;
+
+      @media screen and (min-width: $screen-t) {
+        max-height: 230px;
+      }
+
+      @media screen and (min-width: $screen-ti) {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-height: 80%;
+        border-radius: 5px;
+      }
+
+      @media screen and (min-width: $screen-d) {
+        max-height: 100%;
+      }
+    }
+  }
+}

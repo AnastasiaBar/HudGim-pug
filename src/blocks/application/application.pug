@@ -1,0 +1,35 @@
+//- Все примеси в этом файле должны начинаться c имени блока (application)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin application(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +application('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' application--' + modsList[i].trim();
+      }
+    }
+
+  .application(class=allMods)&attributes(attributes)
+    .container
+      .application__inner
+        p.application__title Запишись на первое пробное бесплатное занятие уже сейчас!
+        .application__cnt-form
+          p.application__form-title Оставьте заявку
+          p.application__form-subtitle Наш представитель свяжется с вами через несколько минут
+          form.application__form
+            input.input.application__input(name='name', placeholder='Имя')
+            input.input.application__input(name='phone', placeholder='Телефон')
+            input.input.application__input(name='age', placeholder='Возраст девочки')
+            button.button.button--red-shadow.popup__button.application__btn(type='button') Оставить заявку
+          p.application__personal-data Заполняя форму вы даёте согласие на обработку
+            a.link(href='#')  персональных данных

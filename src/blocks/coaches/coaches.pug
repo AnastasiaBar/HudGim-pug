@@ -1,0 +1,36 @@
+//- Все примеси в этом файле должны начинаться c имени блока (coaches)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin coaches(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +coaches('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' coaches--' + modsList[i].trim();
+      }
+    }
+
+  .coaches(class=allMods)&attributes(attributes)
+    .container
+      .coaches__inner
+        .coaches__photo
+          img(src='img/coaches-image.png', alt='')
+        .coaches__inf
+          p.coaches__title Тренерский состав
+          .coaches__inf-trainer
+            p.coaches__name Мария Иванова
+            p.coaches__text Мастер Спорта по художественной гимнастике. С 6 лет занималась в Училище Олимпийского Резерва под руководством лучших тренеров России.
+            p.coaches__text Неоднократная победительница Российских и Всероссийских соревнований в групповых упражнениях.
+            p.coaches__text.coaches__text--margin Тренерский стаж работы —
+              span  5 лет
+            p.coaches__text.coaches__text--margin Образование —
+              span  Высшее
