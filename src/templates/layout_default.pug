@@ -26,11 +26,6 @@ html(class='no-js', lang='ru')
     meta(name='HandheldFriendly', content='true')
     meta(name='robots', content='index, follow')
 
-    //- Предзагрузка шрифтов или иных ресурсов
-    link(rel='preload', href= src.fonts + 'Inter-Regular.woff2', as='font', type='font/woff2', crossorigin='anonymous')
-    link(rel='preload', href= src.fonts + 'Inter-Medium.woff2', as='font', type='font/woff2', crossorigin='anonymous')
-    link(rel='preload', href= src.fonts + 'Inter-Bold.woff2', as='font', type='font/woff2', crossorigin='anonymous')
-
     //- Фавиконки (https://realfavicongenerator.net)
     link(rel='apple-touch-icon', sizes='180x180', href= src.img + 'favicon/apple-touch-icon.png')
     link(rel='icon', type='image/png', sizes='32x32', href= src.img + 'favicon/favicon-32x32.png')
@@ -50,19 +45,29 @@ html(class='no-js', lang='ru')
 
     block head
       link(rel='stylesheet', href= src.css + 'style.css')
+      link(rel='stylesheet', type='text/css', href='//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
+      link(rel='stylesheet', type='text/css', href='//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css')
+
       script
         include ../js/head-script.js
+
+    script(src='https://api-maps.yandex.ru/2.1/?lang=ru-RU', type='text/javascript')
+
 
   body
     noscript У вас отключен JavaScript. Это пугает.
 
+    +header
 
     block content
 
-
-
     block templates
 
+    +popup
+
+    .overlay
     script(src= src.js + 'bundle.js')
+    script(src='//code.jquery.com/jquery-1.11.0.min.js')
+    script(src='https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js')
 
     block scripts
